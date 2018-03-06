@@ -38,12 +38,8 @@ const getFakeTweet = function() {
 const dataToFind = 'name';
 
 
-// for (let i = 0; i < 10; i++) {
-//   module.exports.add( getFakeName(), getFakeTweet() );
-// }
-
 for (let i = 0; i < 10; i++) {
-  module.exports.add(getFakeTweet(), getFakeName());
+  module.exports.add(getFakeName(), getFakeTweet());
 }
 
-console.log(module.exports.find(dataToFind));
+// console.log(module.exports.find(dataToFind));
