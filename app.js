@@ -2,8 +2,15 @@
  const express = require("express");
  const app = express();
  const nunjucks = require("nunjucks");
+ const bodyParser = require('body-parser')
 
 // config
+// let jsonParser = bodyParser.json();
+// let urlEncodedParser = bodyParser.urlencoded({extended: false});
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
