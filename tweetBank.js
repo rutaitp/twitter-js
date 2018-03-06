@@ -2,7 +2,8 @@ const _ = require('lodash');
 const data = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+  let id = name.split(' ').join('').toLowerCase();
+  data.push({ name: name, content: content, id: id});
 }
 
 function list () {
@@ -35,6 +36,10 @@ const getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
+const tweetId = function() {
+
+}
+
 const dataToFind = 'name';
 // const dataToFind = {name: "Gabriel"};
 
@@ -43,4 +48,6 @@ for (let i = 0; i < 10; i++) {
   module.exports.add(getFakeName(), getFakeTweet());
 }
 
-console.log(module.exports.find(dataToFind));
+// console.log(data);
+
+// console.log(module.exports.find(dataToFind));
