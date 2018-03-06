@@ -1,8 +1,21 @@
 //main application
  const express = require("express");
  const app = express();
+ const nunjucks = require("nunjucks");
 
-// CHANGES!!!!!!
+ var locals = {
+    title: 'An Example',
+    people: [
+        { name: 'Gandalf'},
+        { name: 'Frodo' },
+        { name: 'Hermione'}
+    ]
+};
+
+// config
+nunjucks.configure('views', {noCache: true});
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
 
 //log any URI
 app.use(function(req, res, next){
@@ -11,7 +24,7 @@ app.use(function(req, res, next){
 });
 
 app.get("/", function(req, res){
-  res.send("Welcome!");
+  res.render('index', {title: locals.title, people: locals.people});
 });
 
 app.get("/news", function(req, res){
