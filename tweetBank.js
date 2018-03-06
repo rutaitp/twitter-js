@@ -36,10 +36,11 @@ const getFakeTweet = function() {
 };
 
 const dataToFind = 'name';
+// const dataToFind = {name: "Gabriel"};
 
 
 for (let i = 0; i < 10; i++) {
   module.exports.add(getFakeName(), getFakeTweet());
 }
 
-// console.log(module.exports.find(dataToFind));
+console.log(module.exports.find(dataToFind));
