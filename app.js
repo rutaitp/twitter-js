@@ -4,10 +4,8 @@
 
 //log any URI
 app.use(function(req, res, next){
-  console.log("Page is loading!");
-  // res.send("Page is loading!");
+  // console.log(req.method + " " + req.url);
   next();
-  // console.log(req.params);
 });
 
 app.get("/", function(req, res){
