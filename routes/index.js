@@ -13,15 +13,16 @@ router.get('/', function (req, res) {
 router.get('/users/:name', function(req, res) {
   var name = req.params.name;
   var list = tweetBank.find( {name: name} );
-  res.render( 'index', { tweets: list } );
+  res.render( 'index', { tweets: list, showForm: true, username: name } );
 });
 
 router.get('/tweets/:id', function(req, res) {
   let id = req.params.id;
   let tweet = tweetBank.find({id: id});
-  res.render('index', {tweets: tweet});
+  res.render('index', {tweets: tweet, showForm: true});
 })
 
+//our form
 router.post('/tweets', function(req, res) {
   var name = req.body.name;
   var text = req.body.text;
@@ -30,4 +31,5 @@ router.post('/tweets', function(req, res) {
   res.redirect('/');
 });
 
+//export all the modules to be available in other files
 module.exports = router;

@@ -5,14 +5,12 @@
  const bodyParser = require('body-parser')
 
 // config
-// let jsonParser = bodyParser.json();
-// let urlEncodedParser = bodyParser.urlencoded({extended: false});
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false })); //for HTML form submits
+app.use(bodyParser.json()); //for ajax request
 
 nunjucks.configure('views', {noCache: true});
-app.set('view engine', 'html');
+app.set('view engine', 'html'); //read files with html extension
 app.engine('html', nunjucks.render);
 
 //log any URI
@@ -25,5 +23,5 @@ app.use(express.static('public')) // serve up CSS file
 const port = 3000;
 
 app.listen(port, function() {
-  console.log(`Server running on port ${3000}!`);
+  console.log(`Server running on port ${port}!`);
 });
