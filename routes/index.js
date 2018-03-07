@@ -23,7 +23,6 @@ router.get('/tweets/:id', function(req, res) {
 })
 
 router.post('/tweets', function(req, res) {
-  console.log(req.body);
   var name = req.body.name;
   var text = req.body.text;
 
