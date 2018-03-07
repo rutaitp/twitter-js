@@ -2,7 +2,7 @@ const _ = require('lodash');
 const data = [];
 
 function add (name, content) {
-  let id = name.split(' ').join('').toLowerCase();
+  let id = name.split(' ').join('').toLowerCase(); //unique id
   data.push({ name: name, content: content, id: id});
 }
 
